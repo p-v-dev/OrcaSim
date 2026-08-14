@@ -1,1 +1,2 @@
+import './quotes';
 import './bootstrap';

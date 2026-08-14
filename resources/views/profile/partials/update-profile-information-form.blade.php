@@ -24,6 +24,15 @@
         </div>
 
         <div>
+            <x-input-label for="plan_type" :value="__('Plan')" />
+            <select id="plan_type" name="plan_type" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <option value="free" {{ old('plan_type', $user->plan_type) === 'free' ? 'selected' : '' }}>Free</option>
+                <option value="paid" {{ old('plan_type', $user->plan_type) === 'paid' ? 'selected' : '' }}>Paid</option>
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('plan_type')" />
+        </div>
+
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
